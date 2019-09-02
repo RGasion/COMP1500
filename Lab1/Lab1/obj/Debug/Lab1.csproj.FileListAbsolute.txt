@@ -1,7 +1,0 @@
-E:\GitHUB\RGasion\POCU_COMP1500\Lab1\Lab1\obj\Debug\Lab1.csprojAssemblyReference.cache
-E:\GitHUB\RGasion\POCU_COMP1500\Lab1\Lab1\obj\Debug\Lab1.csproj.CoreCompileInputs.cache
-E:\GitHUB\RGasion\POCU_COMP1500\Lab1\Lab1\bin\Debug\Lab1.exe.config
-E:\GitHUB\RGasion\POCU_COMP1500\Lab1\Lab1\bin\Debug\Lab1.exe
-E:\GitHUB\RGasion\POCU_COMP1500\Lab1\Lab1\bin\Debug\Lab1.pdb
-E:\GitHUB\RGasion\POCU_COMP1500\Lab1\Lab1\obj\Debug\Lab1.exe
-E:\GitHUB\RGasion\POCU_COMP1500\Lab1\Lab1\obj\Debug\Lab1.pdb
