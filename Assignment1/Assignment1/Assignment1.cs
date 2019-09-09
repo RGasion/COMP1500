@@ -59,13 +59,13 @@ namespace Assignment1
                     max = stats[i];
                 }
             }
-            output.WriteLine($"{"Max",-9} {max.ToString("F3"),10}");
+            output.WriteLine($"{"Max",-10}{max.ToString("F3"),10}");
 
             float sum = stats[0] + stats[1] + stats[2] + stats[3] + stats[4];
-            output.WriteLine($"{"Sum",-9} {sum.ToString("F3"),10}");
+            output.WriteLine($"{"Sum",-10}{sum.ToString("F3"),10}");
 
             float avr = sum / 5;
-            output.WriteLine($"{"Average",-9} {avr.ToString("F3"),10}");
+            output.WriteLine($"{"Average",-10}{avr.ToString("F3"),10}");
         }
     }
 }
