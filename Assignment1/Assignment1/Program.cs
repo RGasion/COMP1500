@@ -9,15 +9,17 @@ namespace Assignment1
     {
         static void Main(string[] args)
         {
-
-            string integersTest = "25\n26\n10\n22\n16";
-            string statsTest = "12.5\n25.262\n12\n10008.2\n1224.2";
+            
+            string integersTest = " 10\n11 \n   16\n17   \n  26  \n";
+            string statsTest = " 12.5\n-25.262 \n  -12\n10008.2   \n   -1224.2   \n";
 
             byte[] buffer1 = Encoding.UTF8.GetBytes(integersTest);
             byte[] buffer2 = Encoding.UTF8.GetBytes(statsTest);
-
-            using (StreamReader READER1 = new StreamReader(new MemoryStream(buffer1)))
-            using (StreamReader READER2 = new StreamReader(new MemoryStream(buffer2)))
+            
+            
+            using (StreamReader READER1 = new StreamReader(new MemoryStream(buffer1))) 
+            using (StreamReader READER2 = new StreamReader(new MemoryStream(buffer2))) 
+            
 
             using (StreamWriter WRITER = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true })
             {
@@ -28,9 +30,7 @@ namespace Assignment1
                 Assignment1.PrintStats(READER2, WRITER);
             }
 
-            Console.WriteLine("Test Assignment 1\n");
-
-
+            Console.WriteLine("\n\nTest Assignment 1\nFINISH\n");
 
         }
     }
