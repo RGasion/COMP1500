@@ -42,7 +42,7 @@ namespace Assignment1
             output.WriteLine($"{"",10}{stats[4].ToString("F3"),10}");
 
             float min = stats[0];
-            for (int i = 1; i<5; i++ )
+            for (int i = 1; i < 5; i++)
             {
                 if (min > stats[i])
                 {
@@ -52,7 +52,7 @@ namespace Assignment1
             output.WriteLine($"{"Min",-9} {min.ToString("F3"),10}");
 
             float max = stats[0];
-            for (int i = 1; i< 5; i++)
+            for (int i = 1; i < 5; i++)
             {
                 if (max < stats[i])
                 {
