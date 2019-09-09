@@ -18,11 +18,11 @@ namespace Assignment1
             output.WriteLine($"{"oct",12} {"dec",10} {"hex",8}");
             output.WriteLine("------------ ---------- --------");//12 10 8
 
-            output.WriteLine("{0, 12} {1, 10} {2, 8}", Convert.ToString(integers1, 8), Convert.ToString(integers1, 10), Convert.ToString(integers1, 16));
-            output.WriteLine("{0, 12} {1, 10} {2, 8}", Convert.ToString(integers2, 8), Convert.ToString(integers2, 10), Convert.ToString(integers2, 16));
-            output.WriteLine("{0, 12} {1, 10} {2, 8}", Convert.ToString(integers3, 8), Convert.ToString(integers3, 10), Convert.ToString(integers3, 16));
-            output.WriteLine("{0, 12} {1, 10} {2, 8}", Convert.ToString(integers4, 8), Convert.ToString(integers4, 10), Convert.ToString(integers4, 16));
-            output.WriteLine("{0, 12} {1, 10} {2, 8}", Convert.ToString(integers5, 8), Convert.ToString(integers5, 10), Convert.ToString(integers5, 16));
+            output.WriteLine("{0, 12} {1, 10} {2, 8}", Convert.ToString(integers1, 8), integers1.ToString(), integers1.ToString("X"));
+            output.WriteLine("{0, 12} {1, 10} {2, 8}", Convert.ToString(integers2, 8), integers2.ToString(), integers2.ToString("X"));
+            output.WriteLine("{0, 12} {1, 10} {2, 8}", Convert.ToString(integers3, 8), integers3.ToString(), integers3.ToString("X"));
+            output.WriteLine("{0, 12} {1, 10} {2, 8}", Convert.ToString(integers4, 8), integers4.ToString(), integers4.ToString("X"));
+            output.WriteLine("{0, 12} {1, 10} {2, 8}", Convert.ToString(integers5, 8), integers5.ToString(), integers5.ToString("X"));
 
         }
 
@@ -41,8 +41,8 @@ namespace Assignment1
             output.WriteLine($"{"",10}{stats[3].ToString("F3"),10}");
             output.WriteLine($"{"",10}{stats[4].ToString("F3"),10}");
 
-            float min = 0;
-            for (int i = 0; i<5; i++ )
+            float min = stats[0];
+            for (int i = 1; i<5; i++ )
             {
                 if (min > stats[i])
                 {
@@ -51,8 +51,8 @@ namespace Assignment1
             }
             output.WriteLine($"{"Min",-9} {min.ToString("F3"),10}");
 
-            float max = 0;
-            for (int i = 0; i< 5; i++)
+            float max = stats[0];
+            for (int i = 1; i< 5; i++)
             {
                 if (max < stats[i])
                 {

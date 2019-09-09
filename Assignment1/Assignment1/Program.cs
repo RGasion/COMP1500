@@ -18,7 +18,7 @@ namespace Assignment1
             //정수 뒤에 하나 이상의 빈 칸을 넣어서 입력했을 때 출력 확인
             string integersTest_b5 = " 52 \n   102   \n      1      \n         2382         \n            409                 \n";
             //정수 앞뒤에 하나 이상의 빈 칸을 넣어서 입력했을 때 출력 확인
-            string statsTest = " 12.5\n-25.262 \n  -12\n10008.2   \n   -1224.2   \n";
+            string statsTest = " 12.5\n-25.2625 \n  -12\n10008   \n   -1224.2   \n";
 
             byte[] buffer_IB0 = Encoding.UTF8.GetBytes(integersTest_b0);
             byte[] buffer_IB3 = Encoding.UTF8.GetBytes(integersTest_b3);
