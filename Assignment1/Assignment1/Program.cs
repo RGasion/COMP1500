@@ -10,7 +10,7 @@ namespace Assignment1
         static void Main(string[] args)
         {
             
-            string integersTest = " 10\n11 \n   16\n17   \n  26  \n";
+            string integersTest = "             52\n102   \n   1      \n         2382\n  409\n";
             string statsTest = " 12.5\n-25.262 \n  -12\n10008.2   \n   -1224.2   \n";
 
             byte[] buffer1 = Encoding.UTF8.GetBytes(integersTest);
@@ -30,7 +30,7 @@ namespace Assignment1
                 Assignment1.PrintStats(READER2, WRITER);
             }
 
-            Console.WriteLine("\n\nTest Assignment 1\nFINISH\n");
+            Console.WriteLine("\n\nTest Assignment 1\n");
 
         }
     }
