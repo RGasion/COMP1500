@@ -32,7 +32,7 @@ namespace Lab3
         {
             double pay = double.Parse(input.ReadLine());
 
-            if(pay >= totalCost)
+            if (pay >= totalCost)
             {
                 return 1;
             }
