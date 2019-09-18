@@ -31,7 +31,7 @@ namespace Lab3
                 Debug.Assert(individualCost == 54.14);
 
                 uint payerCount = RestaurantBillCalculator.CalculatePayerCount(reader3, totalCost);
-                //Debug.Assert(payerCount == 9);
+                Debug.Assert(payerCount == 9);
             }
         }
     }

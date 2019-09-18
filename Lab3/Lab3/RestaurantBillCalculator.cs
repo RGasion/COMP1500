@@ -10,7 +10,7 @@ namespace Lab3
         public static double CalculateTotalCost(StreamReader input)
         {
             double totalPrice = 0;
-            for (int i = 0 ; i < 5; i++)
+            for (int i = 0; i < 5; i++)
             {
                 totalPrice += double.Parse(input.ReadLine());
             }
@@ -32,7 +32,7 @@ namespace Lab3
         {
             double pay = double.Parse(input.ReadLine());
 
-            return (uint)(totalCost % pay);
+            return (uint)(totalCost / pay) + 1;
         }
     }
 }
