@@ -21,11 +21,11 @@ namespace Lab5
                 {
                     tmp = Math.Round((double)usersPerDay[i] / 2, 2);
                 }
-                else if(usersPerDay[i] <= 100)
+                else if (usersPerDay[i] <= 100)
                 {
                     tmp = Math.Round(16 * (double)usersPerDay[i] / 5 - 27, 2);
                 }
-                else if(usersPerDay[i] <= 1000)
+                else if (usersPerDay[i] <= 1000)
                 {
                     tmp = Math.Round(Math.Pow(usersPerDay[i], 2) / 4 - 2 * (double)usersPerDay[i] - 2007, 2);
                 }
@@ -86,11 +86,11 @@ namespace Lab5
         public static double CalculateTotalRevenue(double[] revenuePerDay, uint start, uint end)
         {
             int length;
-            if ((length = revenuePerDay.Length) == 0)
+            if ((length = revenuePerDay.Length) == 0 || start > end)
             {
                 return -1;
             }
-            else if ( start > end || start > length || end > length)
+            else if (start > length || end > length)
             {
                 return -1;
             }
