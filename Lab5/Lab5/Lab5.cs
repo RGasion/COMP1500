@@ -12,7 +12,7 @@ namespace Lab5
                 return false;
             }
 
-            bool check = false;
+            bool bCheck = false;
             for (int i = 0; i < length; i++)
             {
                 double tmp;
@@ -37,11 +37,11 @@ namespace Lab5
                 if (tmp != revenuePerDay[i])
                 {
                     revenuePerDay[i] = tmp;
-                    check = true;
+                    bCheck = true;
                 }
             }
 
-            return check;
+            return bCheck;
         }
 
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
