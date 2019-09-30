@@ -23,7 +23,7 @@ namespace Assignment1
             output.WriteLine("{0, 12} {1, 10} {2, 8}", Convert.ToString(integers3, 8), integers3.ToString(), integers3.ToString("X"));
             output.WriteLine("{0, 12} {1, 10} {2, 8}", Convert.ToString(integers4, 8), integers4.ToString(), integers4.ToString("X"));
             output.WriteLine("{0, 12} {1, 10} {2, 8}", Convert.ToString(integers5, 8), integers5.ToString(), integers5.ToString("X"));
-
+            
         }
 
         public static void PrintStats(StreamReader input, StreamWriter output)
