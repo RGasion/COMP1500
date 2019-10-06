@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Assignment2
+﻿namespace Assignment2
 {
-    class EShape
-    {
-    }
+    public enum EShape { Rectangle, IsoscelesRightTriangle, IsoscelesTriangle, Circle };
 }

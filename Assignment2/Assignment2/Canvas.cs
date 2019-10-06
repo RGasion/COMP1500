@@ -6,6 +6,116 @@ namespace Assignment2
 {
     public static class Canvas
     {
+        /* 
+         Rectangle = 0
+         IsoscelesRightTriangle = 1
+         IsoscelesTriangle = 2
+         Circle = 3
+        */
 
+        public static char[,] Draw(uint width, uint height, EShape shape)
+        {
+            if (width == 0 || height == 0)
+            {
+                char[,] fail = new char[0,0];
+                return fail;
+            }
+
+            char[,] canvas = new char[height + 4, width + 4];
+
+            //초기화 작업  
+            for (int i=0; i < width + 4; i++)
+            {
+                canvas[0, i] = canvas[height + 3, i] = '-';
+            }
+
+            for (int i=1; i <= height + 2; i++)
+            {
+                canvas[i ,0] = canvas[i, width + 3] = '|';
+            }
+
+            //EShape 값에 따른 canvas 처리
+            if (shape == EShape.Rectangle)
+            {
+                for (int i = 0; i < height; i++)
+                {
+                    for (int k = 0; k < width;  k++)
+                    {
+                        canvas[i + 2, k + 2] = '*';
+                    }
+                }
+            }
+            else if (shape == EShape.IsoscelesRightTriangle)
+            {
+                if (width != height)
+                {
+                    char[,] fail = new char[0, 0];
+                    return fail;
+                }
+                else
+                {
+                    uint cnt = 0;
+                    for (int i = 0; i < height; i++)
+                    {
+                        cnt++;
+                        for (int k = 0; k < cnt; k++)
+                        {
+                            canvas[i + 2, k + 2] = '*';
+                        }
+                    }
+                }
+            }
+            else if (shape == EShape.IsoscelesTriangle)
+            {
+                if (width != height * 2 - 1)
+                {
+                    char[,] fail = new char[0, 0];
+                    return fail;
+                }
+                else
+                { 
+                   uint chk = (width + 1)/2 - 1;
+                   uint cnt = 0;
+                   for (int i = 0; i < height; i++)
+                   {
+                        for (int k = 0; k < width; k++)
+                        {
+                            if (k >= chk - cnt && k <= chk + cnt)
+                            {
+                                canvas[i + 2, k + 2] = '*';
+                            }
+                        }
+                        cnt++;
+                   }
+                }
+            }
+            else if (shape == EShape.Circle)
+            {
+                if (width != height || width%2 != 0)
+                {
+                    char[,] fail = new char[0, 0];
+                    return fail;
+                }
+                else
+                {
+                    uint radius = width / 2;
+                    for (int i = 0; i < height; i++)
+                    {
+                        for (int k = 0; k < width; k++)
+                        {
+
+                        }
+                    }
+                }
+            }
+
+            return canvas;
+        }
+
+        public static bool IsShape(char[,] canvas, EShape shape)
+        {
+
+            return false;
+        }
     }
 }

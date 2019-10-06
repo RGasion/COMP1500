@@ -7,37 +7,17 @@ namespace Assignment2
     {
         static void Main(string[] args)
         {
-            char[,] canvas = Canvas.Draw(21, 21, EShape.Circle);
-            printCanvas(canvas);
+            char[,] canvas01 = Canvas.Draw(10, 8, EShape.Rectangle);
+            printCanvas(canvas01);
 
-            Debug.Assert(Canvas.IsShape(canvas, EShape.Circle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.Rectangle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
+            char[,] canvas02 = Canvas.Draw(10, 10, EShape.IsoscelesRightTriangle);
+            printCanvas(canvas02);
 
-            canvas = Canvas.Draw(10, 8, EShape.Rectangle);
-            printCanvas(canvas);
+            char[,] canvas03 = Canvas.Draw(9, 5, EShape.IsoscelesTriangle);
+            printCanvas(canvas03);
 
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
-            Debug.Assert(Canvas.IsShape(canvas, EShape.Rectangle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
-
-            canvas = Canvas.Draw(9, 5, EShape.IsoscelesTriangle);
-            printCanvas(canvas);
-
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.Rectangle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
-            Debug.Assert(Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
-
-            canvas = Canvas.Draw(8, 8, EShape.IsoscelesRightTriangle);
-            printCanvas(canvas);
-
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.Rectangle));
-            Debug.Assert(Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
-            Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
+            char[,] canvas04 = Canvas.Draw(10, 10, EShape.Circle);
+            printCanvas(canvas04);
         }
 
         // canvas를 콘솔 창에 출력해주는 도우미 함수
