@@ -24,7 +24,7 @@ namespace Assignment2
             char[,] canvas = new char[height + 4, width + 4];
 
             //초기화 작업  
-            for (int i = 0; i < width + 4; i++)
+            for (int i = 0; i < width + 4; i++)             
             {
                 canvas[0, i] = canvas[height + 3, i] = '-';
             }
@@ -32,6 +32,10 @@ namespace Assignment2
             for (int i = 1; i <= height + 2; i++)
             {
                 canvas[i, 0] = canvas[i, width + 3] = '|';
+                for (int k = 0; k < width + 2; k++)
+                {
+                    canvas[i, k + 1] = ' ';
+                }
             }
 
             //EShape 값에 따른 canvas 처리
@@ -114,6 +118,100 @@ namespace Assignment2
 
         public static bool IsShape(char[,] canvas, EShape shape)
         {
+            int height = canvas.GetUpperBound(0) + 1;
+            int length = canvas.Length / height;
+
+            length -= 4;
+            height -= 4;
+
+            int[] checkRow = new int[height];
+            int[] checkColumn = new int[length];
+
+            for (int row = 0; row < height ;row++)
+            {
+                for (int column = 0; column < length; column++)
+                {
+                    if (canvas[row + 2, column + 2 ] == '*')
+                    {
+                        checkRow[row]++;
+                        checkColumn[column]++;
+                    }
+                }
+            }
+
+            //
+            Console.WriteLine($"{length} {height}");
+            for (int i = 0; i < height; i++)
+            {
+                Console.Write($" {checkRow[i]}");
+            }
+            Console.WriteLine();
+            for (int i = 0; i < length; i++)
+            {
+                Console.Write($" {checkColumn[i]}");
+            }
+            Console.WriteLine();
+            //
+
+            if (shape == EShape.Rectangle)
+            {
+                for(int stage = 0; stage < height; stage++)
+                {
+                    if (checkRow[0] != checkRow[stage])
+                    {
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            else if (shape == EShape.IsoscelesRightTriangle)
+            {
+                if (height != length)
+                {
+                    return false;
+                }
+
+                for (int stage = 0; stage < height; stage++)
+                {
+                    if (checkRow[stage] != checkColumn[height - 1 - stage])
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            else if (shape == EShape.IsoscelesTriangle)
+            {
+                if (length != height * 2 - 1)
+                {
+                    return false;
+                }
+
+                for (int stage = 0; stage < height; stage++)
+                {
+                    if (checkColumn[stage] != checkColumn[length - 1 - stage])
+                    {
+                        return false;
+                    }
+                    
+                    if (stage > 0)
+                    {
+                        if (checkRow[stage] - checkRow[stage - 1] != 2)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+            else if (shape == EShape.Circle)
+            {
+                for (int stage = 0; stage < height; stage++)
+                {
+                    
+                }
+                return false;
+            }
 
             return false;
         }
