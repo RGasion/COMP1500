@@ -17,21 +17,21 @@ namespace Assignment2
         {
             if (width == 0 || height == 0)
             {
-                char[,] fail = new char[0,0];
+                char[,] fail = new char[0, 0];
                 return fail;
             }
 
             char[,] canvas = new char[height + 4, width + 4];
 
             //초기화 작업  
-            for (int i=0; i < width + 4; i++)
+            for (int i = 0; i < width + 4; i++)
             {
                 canvas[0, i] = canvas[height + 3, i] = '-';
             }
 
-            for (int i=1; i <= height + 2; i++)
+            for (int i = 1; i <= height + 2; i++)
             {
-                canvas[i ,0] = canvas[i, width + 3] = '|';
+                canvas[i, 0] = canvas[i, width + 3] = '|';
             }
 
             //EShape 값에 따른 canvas 처리
@@ -39,7 +39,7 @@ namespace Assignment2
             {
                 for (int i = 0; i < height; i++)
                 {
-                    for (int k = 0; k < width;  k++)
+                    for (int k = 0; k < width; k++)
                     {
                         canvas[i + 2, k + 2] = '*';
                     }
@@ -74,10 +74,10 @@ namespace Assignment2
                 }
                 else
                 { 
-                   uint chk = (width + 1)/2 - 1;
-                   uint cnt = 0;
-                   for (int i = 0; i < height; i++)
-                   {
+                    uint chk = (width + 1) / 2 - 1;
+                    uint cnt = 0;
+                    for (int i = 0; i < height; i++)
+                    {
                         for (int k = 0; k < width; k++)
                         {
                             if (k >= chk - cnt && k <= chk + cnt)
@@ -86,12 +86,12 @@ namespace Assignment2
                             }
                         }
                         cnt++;
-                   }
+                    }
                 }
             }
             else if (shape == EShape.Circle)
             {
-                if (width != height || width%2 != 0)
+                if (width != height || width % 2 != 0)
                 {
                     char[,] fail = new char[0, 0];
                     return fail;
