@@ -88,7 +88,7 @@ namespace Assignment2
             }
             else if (shape == EShape.Circle)
             {
-                if (width != height || width % 2 != 0)
+                if (width != height || width % 2 == 0)
                 {
                     char[,] fail = new char[0, 0];
                     return fail;
@@ -96,11 +96,15 @@ namespace Assignment2
                 else
                 {
                     uint radius = width / 2;
-                    for (int i = 0; i < height; i++)
+                    //center = canvas[radius][radius]
+                    for (int row = 0; row < height; row++)
                     {
-                        for (int k = 0; k < width; k++)
+                        for (int column = 0; column < width; column++)
                         {
-
+                            if ( Math.Pow(radius, 2) >= Math.Pow(Math.Abs(row - radius), 2) + Math.Pow(Math.Abs(column - radius), 2) )
+                            {
+                                canvas[row + 2, column + 2] = '*';
+                            }
                         }
                     }
                 }
@@ -118,84 +122,24 @@ namespace Assignment2
             }
 
             int height = canvas.GetUpperBound(0) + 1;
-            int length = canvas.Length / height;
+            int width = canvas.Length / height;
 
-            length -= 4;
+            width -= 4;
             height -= 4;
 
             //기준보다 작은 배열 확인
-            if (length <= 0 || height <= 0)
+            if (width <= 0 || height <= 0)
             {
                 return false;
-            }
-
-            int[] checkRow = new int[height];
-            int[] checkColumn = new int[length];
-
-            for (int row = 0; row < height; row++)
-            {
-                for (int column = 0; column < length; column++)
-                {
-                    if (canvas[row + 2, column + 2] == '*')
-                    {
-                        checkRow[row]++;
-                        checkColumn[column]++;
-                    }
-                }
             }
             
             if (shape == EShape.Rectangle)
             {
-                if (checkRow[0] == 0)
+                for (int i = 0; i < height; i++)
                 {
-                    return false;
-                }
-
-                for (int row = 0; row < height; row++)
-                {
-                    if (checkRow[0] != checkRow[row])
+                    for (int k = 0; k < width; k++)
                     {
-                        return false;
-                    }
-                }                
-                return true;
-            }
-            else if (shape == EShape.IsoscelesRightTriangle)
-            {
-                //기본 정의 확인
-                if (height != length || checkRow[0] == 0)
-                {
-                    return false;
-                }
-                //패턴 확인
-                for (int stage = 0; stage < height; stage++)
-                {
-                    if (checkRow[stage] != checkColumn[height - 1 - stage])
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            else if (shape == EShape.IsoscelesTriangle)
-            {
-                //기본 정의 확인
-                if (length != height * 2 - 1 || checkRow[0] == 0)
-                {
-                    return false;
-                }
-
-                for (int stage = 0; stage < height; stage++)
-                {
-                    //대칭 패턴 확인
-                    if (checkColumn[stage] != checkColumn[length - 1 - stage])
-                    {
-                        return false;
-                    }
-                    //모양 패턴 확인
-                    if (stage > 0)
-                    {
-                        if (checkRow[stage] - checkRow[stage - 1] != 2)
+                        if (canvas[i + 2, k + 2] != '*')
                         {
                             return false;
                         }
@@ -203,15 +147,108 @@ namespace Assignment2
                 }
                 return true;
             }
+            else if (shape == EShape.IsoscelesRightTriangle)
+            {
+                //기본 정의 확인
+                if (height != width)
+                {
+                    return false;
+                }
+                else
+                {
+                    uint cnt = 0;
+                    for (int i = 0; i < height; i++)
+                    {
+                        cnt++;
+                        for (int k = 0; k < width; k++)
+                        {
+                            if ( k < cnt)
+                            {
+                                if (canvas[i + 2, k + 2] != '*')
+                                {
+                                    return false;
+                                }                                
+                            }
+                            else
+                            {
+                                if (canvas[i + 2, k + 2] != ' ')
+                                {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                    return true;
+                }
+            }
+            else if (shape == EShape.IsoscelesTriangle)
+            {
+                //기본 정의 확인
+                if (width != height * 2 - 1)
+                {
+                    return false;
+                }
+                else
+                {
+                    int chk = (width + 1) / 2 - 1;
+                    int cnt = 0;
+                    for (int i = 0; i < height; i++)
+                    {
+                        for (int k = 0; k < width; k++)
+                        {
+                            if (k >= chk - cnt && k <= chk + cnt)
+                            {
+                                if (canvas[i + 2, k + 2] != '*')
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                if (canvas[i + 2, k + 2] != ' ')
+                                {
+                                    return false;
+                                }
+                            }
+                        }
+                        cnt++;
+                    }
+                    return true;
+                }
+            }
             else if (shape == EShape.Circle)
             {
-                for (int stage = 0; stage < height; stage++)
+                if (width != height || width % 2 == 0)
                 {
-                    
+                    return false;
                 }
-                return false;
+                else
+                {
+                    int radius = width / 2;
+                    //center = canvas[radius][radius]
+                    for (int row = 0; row < height; row++)
+                    {
+                        for (int column = 0; column < width; column++)
+                        {
+                            if (Math.Pow(radius, 2) >= Math.Pow(Math.Abs(row - radius), 2) + Math.Pow(Math.Abs(column - radius), 2))
+                            {
+                                if (canvas[row + 2, column + 2] != '*')
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                if (canvas[row + 2, column + 2] != ' ')
+                                {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                    return true;
+                }
             }
-            //마지막 확인용 false
             return false;
         }
     }

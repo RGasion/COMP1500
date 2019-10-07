@@ -10,7 +10,7 @@ namespace Assignment2
             char[,] canvas = Canvas.Draw(21, 21, EShape.Circle);
             printCanvas(canvas);
 
-            //Debug.Assert(Canvas.IsShape(canvas, EShape.Circle));
+            Debug.Assert(Canvas.IsShape(canvas, EShape.Circle));
             Debug.Assert(!Canvas.IsShape(canvas, EShape.Rectangle));
             Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
             Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
@@ -18,7 +18,7 @@ namespace Assignment2
             canvas = Canvas.Draw(48, 3, EShape.Rectangle);
             printCanvas(canvas);
 
-            //Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
+            Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
             Debug.Assert(Canvas.IsShape(canvas, EShape.Rectangle));
             Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
             Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
@@ -26,7 +26,7 @@ namespace Assignment2
             canvas = Canvas.Draw(9, 5, EShape.IsoscelesTriangle);
             printCanvas(canvas);
 
-            //Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
+            Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
             Debug.Assert(!Canvas.IsShape(canvas, EShape.Rectangle));
             Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
             Debug.Assert(Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
@@ -34,7 +34,7 @@ namespace Assignment2
             canvas = Canvas.Draw(8, 8, EShape.IsoscelesRightTriangle);
             printCanvas(canvas);
 
-            //Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
+            Debug.Assert(!Canvas.IsShape(canvas, EShape.Circle));
             Debug.Assert(!Canvas.IsShape(canvas, EShape.Rectangle));
             Debug.Assert(Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
             Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
@@ -51,6 +51,7 @@ namespace Assignment2
             Debug.Assert(!Canvas.IsShape(canvasBlank, EShape.Rectangle));
             Debug.Assert(!Canvas.IsShape(canvasBlank, EShape.IsoscelesRightTriangle));
             Debug.Assert(!Canvas.IsShape(canvasBlank, EShape.IsoscelesTriangle));
+            Debug.Assert(!Canvas.IsShape(canvasBlank, EShape.Circle));
         }
 
         // canvas를 콘솔 창에 출력해주는 도우미 함수
