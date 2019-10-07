@@ -152,13 +152,13 @@ namespace Assignment2
                     {
                         return false;
                     }
-                }
+                }                
                 return true;
             }
             else if (shape == EShape.IsoscelesRightTriangle)
             {
                 //기본 정의 확인
-                if (height < 2 || height != length)
+                if (height != length)
                 {
                     return false;
                 }
@@ -170,13 +170,13 @@ namespace Assignment2
                     {
                         return false;
                     }
+                    return true;
                 }
-                return true;
             }
             else if (shape == EShape.IsoscelesTriangle)
             {
                 //기본 정의 확인
-                if (height < 2 || length != height * 2 - 1)
+                if (length != height * 2 - 1)
                 {
                     return false;
                 }
@@ -196,8 +196,8 @@ namespace Assignment2
                             return false;
                         }
                     }
+                    return true;
                 }
-                return true;
             }
             else if (shape == EShape.Circle)
             {

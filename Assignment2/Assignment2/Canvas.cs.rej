@@ -1,0 +1,11 @@
+diff a/Assignment2/Assignment2/Canvas.cs b/Assignment2/Assignment2/Canvas.cs	(rejected hunks)
+@@ -167,8 +167,8 @@
+                     {
+                         return false;
+                     }
+-                    return true;
+                 }
++                return true;
+             }
+             else if (shape == EShape.IsoscelesRightTriangle)
+             {
