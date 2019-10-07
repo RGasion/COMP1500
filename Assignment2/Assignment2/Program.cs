@@ -38,6 +38,19 @@ namespace Assignment2
             Debug.Assert(!Canvas.IsShape(canvas, EShape.Rectangle));
             Debug.Assert(Canvas.IsShape(canvas, EShape.IsoscelesRightTriangle));
             Debug.Assert(!Canvas.IsShape(canvas, EShape.IsoscelesTriangle));
+
+            char[,] canvasBlank =
+            {
+            {'-','-','-','-','-'},
+            {'|',' ',' ',' ','|'},
+            {'|',' ',' ',' ','|'},
+            {'|',' ',' ',' ','|'},
+            {'-','-','-','-','-'},
+            };
+
+            Debug.Assert(!Canvas.IsShape(canvasBlank, EShape.Rectangle));
+            Debug.Assert(!Canvas.IsShape(canvasBlank, EShape.IsoscelesRightTriangle));
+            Debug.Assert(!Canvas.IsShape(canvasBlank, EShape.IsoscelesTriangle));
         }
 
         // canvas를 콘솔 창에 출력해주는 도우미 함수

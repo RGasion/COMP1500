@@ -146,6 +146,11 @@ namespace Assignment2
             
             if (shape == EShape.Rectangle)
             {
+                if (checkRow[0] == 0)
+                {
+                    return false;
+                }
+
                 for (int row = 0; row < height; row++)
                 {
                     if (checkRow[0] != checkRow[row])
@@ -158,25 +163,24 @@ namespace Assignment2
             else if (shape == EShape.IsoscelesRightTriangle)
             {
                 //기본 정의 확인
-                if (height != length)
+                if (height != length || checkRow[0] == 0)
                 {
                     return false;
                 }
                 //패턴 확인
                 for (int stage = 0; stage < height; stage++)
                 {
-                    
                     if (checkRow[stage] != checkColumn[height - 1 - stage])
                     {
                         return false;
                     }
-                    return true;
                 }
+                return true;
             }
             else if (shape == EShape.IsoscelesTriangle)
             {
                 //기본 정의 확인
-                if (length != height * 2 - 1)
+                if (length != height * 2 - 1 || checkRow[0] == 0)
                 {
                     return false;
                 }
@@ -196,8 +200,8 @@ namespace Assignment2
                             return false;
                         }
                     }
-                    return true;
                 }
+                return true;
             }
             else if (shape == EShape.Circle)
             {
