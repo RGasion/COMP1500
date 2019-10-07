@@ -6,13 +6,6 @@ namespace Assignment2
 {
     public static class Canvas
     {
-        /* 
-         Rectangle = 0
-         IsoscelesRightTriangle = 1
-         IsoscelesTriangle = 2
-         Circle = 3
-        */
-
         public static char[,] Draw(uint width, uint height, EShape shape)
         {
             if (width == 0 || height == 0)
@@ -118,13 +111,20 @@ namespace Assignment2
 
         public static bool IsShape(char[,] canvas, EShape shape)
         {
+            //길이 0 배열 확인
+            if(canvas.Length == 0)
+            {
+                return false;
+            }
+
             int height = canvas.GetUpperBound(0) + 1;
             int length = canvas.Length / height;
 
             length -= 4;
             height -= 4;
 
-            if (length == 0 || height == 0)
+            //기준보다 작은 배열 확인
+            if (length <= 0 || height <= 0)
             {
                 return false;
             }
@@ -143,27 +143,12 @@ namespace Assignment2
                     }
                 }
             }
-
-            /*
-            Console.WriteLine($"{length} {height}");
-            for (int i = 0; i < height; i++)
-            {
-                Console.Write($" {checkRow[i]}");
-            }
-            Console.WriteLine();
-            for (int i = 0; i < length; i++)
-            {
-                Console.Write($" {checkColumn[i]}");
-            }
-            Console.WriteLine();
-            */
-
             
             if (shape == EShape.Rectangle)
             {
-                for(int stage = 0; stage < height; stage++)
+                for (int row = 0; row < height; row++)
                 {
-                    if (checkRow[0] != checkRow[stage])
+                    if (checkRow[0] != checkRow[row])
                     {
                         return false;
                     }
@@ -172,13 +157,15 @@ namespace Assignment2
             }
             else if (shape == EShape.IsoscelesRightTriangle)
             {
-                if (height != length)
+                //기본 정의 확인
+                if (height < 2 || height != length)
                 {
                     return false;
                 }
-
+                //패턴 확인
                 for (int stage = 0; stage < height; stage++)
                 {
+                    
                     if (checkRow[stage] != checkColumn[height - 1 - stage])
                     {
                         return false;
@@ -188,18 +175,20 @@ namespace Assignment2
             }
             else if (shape == EShape.IsoscelesTriangle)
             {
-                if (length != height * 2 - 1)
+                //기본 정의 확인
+                if (height < 2 || length != height * 2 - 1)
                 {
                     return false;
                 }
 
                 for (int stage = 0; stage < height; stage++)
                 {
+                    //대칭 패턴 확인
                     if (checkColumn[stage] != checkColumn[length - 1 - stage])
                     {
                         return false;
                     }
-                    
+                    //모양 패턴 확인
                     if (stage > 0)
                     {
                         if (checkRow[stage] - checkRow[stage - 1] != 2)
@@ -218,7 +207,7 @@ namespace Assignment2
                 }
                 return false;
             }
-
+            //마지막 확인용 false
             return false;
         }
     }
