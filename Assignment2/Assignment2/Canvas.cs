@@ -112,7 +112,7 @@ namespace Assignment2
         public static bool IsShape(char[,] canvas, EShape shape)
         {
             //길이 0 배열 확인
-            if(canvas.Length == 0)
+            if (canvas.Length == 0)
             {
                 return false;
             }
