@@ -167,8 +167,8 @@ namespace Assignment2
                     {
                         return false;
                     }
-                    return true;
                 }
+                return true;
             }
             else if (shape == EShape.IsoscelesRightTriangle)
             {
