@@ -124,14 +124,19 @@ namespace Assignment2
             length -= 4;
             height -= 4;
 
+            if (length == 0 || height == 0)
+            {
+                return false;
+            }
+
             int[] checkRow = new int[height];
             int[] checkColumn = new int[length];
 
-            for (int row = 0; row < height ;row++)
+            for (int row = 0; row < height; row++)
             {
                 for (int column = 0; column < length; column++)
                 {
-                    if (canvas[row + 2, column + 2 ] == '*')
+                    if (canvas[row + 2, column + 2] == '*')
                     {
                         checkRow[row]++;
                         checkColumn[column]++;
@@ -139,7 +144,7 @@ namespace Assignment2
                 }
             }
 
-            //
+            /*
             Console.WriteLine($"{length} {height}");
             for (int i = 0; i < height; i++)
             {
@@ -151,8 +156,9 @@ namespace Assignment2
                 Console.Write($" {checkColumn[i]}");
             }
             Console.WriteLine();
-            //
+            */
 
+            
             if (shape == EShape.Rectangle)
             {
                 for(int stage = 0; stage < height; stage++)
