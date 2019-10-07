@@ -101,7 +101,7 @@ namespace Assignment2
                     {
                         for (int column = 0; column < width; column++)
                         {
-                            if ( Math.Pow(radius, 2) >= Math.Pow(Math.Abs(row - radius), 2) + Math.Pow(Math.Abs(column - radius), 2) )
+                            if (Math.Pow(radius, 2) >= Math.Pow(Math.Abs(row - radius), 2) + Math.Pow(Math.Abs(column - radius), 2))
                             {
                                 canvas[row + 2, column + 2] = '*';
                             }
@@ -162,7 +162,7 @@ namespace Assignment2
                         cnt++;
                         for (int k = 0; k < width; k++)
                         {
-                            if ( k < cnt)
+                            if (k < cnt)
                             {
                                 if (canvas[i + 2, k + 2] != '*')
                                 {
