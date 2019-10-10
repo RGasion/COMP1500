@@ -28,7 +28,7 @@ namespace Lab6
             return arrReturn;
         }
 
-        public static void TransformArray(ref int[,] arr, EMode mode)
+        public static void TransformArray(int[,] arr, EMode mode)
         {
             int originRow = arr.GetUpperBound(0) + 1;
             int originColumn = arr.GetUpperBound(1) + 1;
