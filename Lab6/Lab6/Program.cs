@@ -24,7 +24,7 @@ namespace Lab6
             
             Lab6.TransformArray(data, EMode.HorizontalMirror);
             printArray(data);
-            /*
+            
             Debug.Assert(isArrayEqual(new int[,]
             {
                 { 6, 5, 4, 3, 2, 1 },
@@ -35,10 +35,10 @@ namespace Lab6
             }, data));
 
             data = getTestArray();
-            */
+            
             Lab6.TransformArray(data, EMode.VerticalMirror);
             printArray(data);
-            /*
+            
             Debug.Assert(isArrayEqual(new int[,]
             {
                 { 41, 42, 43, 44, 45, 46 },
@@ -47,7 +47,7 @@ namespace Lab6
                 { 11, 12, 13, 14, 15, 16 },
                 { 1, 2, 3, 4, 5, 6 }
             }, data));
-            */
+            
             data = getTestArray();
 
             Lab6.TransformArray(data, EMode.DiagonalShift);

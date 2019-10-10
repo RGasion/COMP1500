@@ -32,11 +32,13 @@ namespace Lab6
         {
             int originRow = arr.GetUpperBound(0) + 1;
             int originColumn = arr.GetUpperBound(1) + 1;
-            int tmp;            
+            int tmp;
+
             if (mode == EMode.HorizontalMirror)
             {
                 int count = originColumn / 2;
                 
+
                 for (int processRow = 0; processRow < originRow; processRow++)
                 {
                     for (int processColumn = 0; processColumn < count; processColumn++)
@@ -63,7 +65,22 @@ namespace Lab6
             }
             else if (mode == EMode.DiagonalShift)
             {
+                for (int processRow = 0; processRow < originRow - 1; processRow++)
+                {
+                    for (int processColumn = 0; processColumn < originColumn - 1; processColumn++)
+                    {
+                        tmp = arr[originRow - 1, originColumn - 1 - processColumn];
+                        arr[originRow - 1, originColumn - 1 - processColumn] = arr[originRow - 1, (originColumn*2 - 2 - processColumn) % originColumn];
+                        arr[originRow - 1, (originColumn * 2 - 2 - processColumn) % originColumn] = tmp;
+                    }
 
+                    for (int processColumn = 0; processColumn < originColumn; processColumn++)
+                    {
+                        tmp = arr[originRow - 1, processColumn];
+                        arr[originRow - 1, processColumn] = arr[processRow, processColumn];
+                        arr[processRow, processColumn] = tmp;
+                    }
+                }
             }
         }
     }
