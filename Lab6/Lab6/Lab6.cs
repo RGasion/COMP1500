@@ -67,18 +67,21 @@ namespace Lab6
             {
                 for (int processRow = 0; processRow < originRow - 1; processRow++)
                 {
-                    for (int processColumn = 0; processColumn < originColumn - 1; processColumn++)
-                    {
-                        tmp = arr[originRow - 1, originColumn - 1 - processColumn];
-                        arr[originRow - 1, originColumn - 1 - processColumn] = arr[originRow - 1, (originColumn*2 - 2 - processColumn) % originColumn];
-                        arr[originRow - 1, (originColumn * 2 - 2 - processColumn) % originColumn] = tmp;
-                    }
-
                     for (int processColumn = 0; processColumn < originColumn; processColumn++)
                     {
                         tmp = arr[originRow - 1, processColumn];
                         arr[originRow - 1, processColumn] = arr[processRow, processColumn];
                         arr[processRow, processColumn] = tmp;
+                    }
+                }
+
+                for (int processRow = 0; processRow < originRow; processRow++)
+                {
+                    for (int processColumn = 0; processColumn < originColumn - 1; processColumn++)
+                    {
+                        tmp = arr[processRow, originColumn - 1 - processColumn];
+                        arr[processRow, originColumn - 1 - processColumn] = arr[processRow, (originColumn * 2 - 2 - processColumn) % originColumn];
+                        arr[processRow, (originColumn * 2 - 2 - processColumn) % originColumn] = tmp;
                     }
                 }
             }
