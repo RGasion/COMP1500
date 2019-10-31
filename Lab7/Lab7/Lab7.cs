@@ -29,14 +29,15 @@ namespace Lab7
             }
 
             uint start = array[0];
-            uint dest = array[array.Length - 1];
+            uint[] loopCheck = new uint[array.Length];
 
-            return SearchRecursive(array, start);
+            return SearchRecursive(array, loopCheck, start);
         }
 
-        public static bool SearchRecursive(uint[] array, uint position)
+        public static bool SearchRecursive(uint[] array, uint[] loopCheck, uint position)
         {
-            if (position == 0 || position >= array.Length) //유효한 위치 확인
+            //잘못된 색인범위 or 정답찾기 성공
+            if (position == 0 || position >= array.Length)
             {
                 return false;
             }
@@ -45,21 +46,21 @@ namespace Lab7
                 return true;
             }
 
-            
-            if (position < array[position])
+            //루프 체크
+            if (loopCheck[position] > 1)
             {
-                uint right = position + array[position];
-
-                return SearchRecursive(array, right);
+                return false;
             }
             else
             {
-                uint left = position - array[position];
-                uint right = position + array[position];
-
-                return (SearchRecursive(array, left) || SearchRecursive(array, right));
+                loopCheck[position]++;
             }
-            
+
+            uint left = position - array[position];
+            uint right = position + array[position];
+
+            return (SearchRecursive(array, loopCheck, right) || SearchRecursive(array, loopCheck, left));
+
         }
     }
 }
