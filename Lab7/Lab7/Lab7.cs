@@ -22,10 +22,10 @@ namespace Lab7
             uint start = array[0];
             uint dest = array[array.Length - 1];
 
-            return SearchAnswer(array, start, dest);
+            return SearchAnswerRecursive(array, start, dest);
         }
 
-        public static bool SearchAnswer(uint[] array, uint position, uint dest)
+        public static bool SearchAnswerRecursive(uint[] array, uint position, uint dest)
         {
             if (position <= 0 || position >= array.Length)
             {
@@ -39,7 +39,7 @@ namespace Lab7
             uint left = position - array[position];
             uint right = position + array[position];
 
-            return SearchAnswer(array, left, dest) || SearchAnswer(array, right, dest);
+            return (SearchAnswerRecursive(array, left, dest) || SearchAnswerRecursive(array, right, dest));
         }
     }
 }
