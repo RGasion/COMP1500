@@ -225,7 +225,7 @@ namespace Assignment2
                 else
                 {
                     int radius = width / 2;
-                    //center = canvas[radius][radius]
+                    
                     for (int row = 0; row < height; row++)
                     {
                         for (int column = 0; column < width; column++)
