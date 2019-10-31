@@ -14,6 +14,10 @@ namespace Lab7
             bPass = Lab7.PlayGame(array); // false
             Console.WriteLine($"{bPass}");
 
+            array = new uint[4] { 10, 2, 10, 0 };
+            bPass = Lab7.PlayGame(array); // false
+            Console.WriteLine($"{bPass}");
+
             array = new uint[3] { 2, 2, 0 };
             bPass = Lab7.PlayGame(array); // true
             Console.WriteLine($"{bPass}");
