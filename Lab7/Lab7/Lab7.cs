@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Lab7
 {
@@ -24,16 +22,16 @@ namespace Lab7
             uint start = array[0];
             uint dest = array[array.Length - 1];
 
-            return searchAnswer(array, start, dest);
+            return SearchAnswer(array, start, dest);
         }
 
-        public static bool searchAnswer(uint[] array, uint position, uint dest)
+        public static bool SearchAnswer(uint[] array, uint position, uint dest)
         {
-            if(position <= 0 || position >= array.Length)
+            if (position <= 0 || position >= array.Length)
             {
                 return false;
             }
-            else if(position == array.Length - 1)
+            else if (position == array.Length - 1)
             {
                 return true;
             }
@@ -41,7 +39,7 @@ namespace Lab7
             uint left = position - array[position];
             uint right = position + array[position];
 
-            return searchAnswer(array, left, dest) || searchAnswer(array, right, dest);
+            return SearchAnswer(array, left, dest) || SearchAnswer(array, right, dest);
         }
     }
 }
