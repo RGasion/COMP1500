@@ -6,7 +6,7 @@ namespace Lab7
     {
         public static bool PlayGame(uint[] array)
         {
-            if (array.Length < 2 || array[0] == 0 || array[array.Length - 1] != 0)
+            if (array.Length < 2 || array[0] == 0 || array[0] >= array.Length || array[array.Length - 1] != 0)
             {
                 return false;
             }
