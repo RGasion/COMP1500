@@ -54,7 +54,7 @@ namespace Lab7
                 loopCheck[position]++;
             }
 
-            uint left;  //left 변수의 언더플로우로 문제가 발생할 여지를 차단하기 위한 코드, 대소 구분없이 뺀 값을 대입해도 테스트는 통과 가능
+            uint left;  //left 변수의 언더플로우로 문제가 발생할 여지를 차단하기 위한 코드, 대소 구분없이 뺀 값을 left에 대입해도 테스트는 통과 가능
             if (position > array[position])
             {
                 left = position - array[position];
@@ -64,10 +64,7 @@ namespace Lab7
                 left = 0;
             }
             uint right = position + array[position];
-            /*
-             * right 변수는 테스트 환경에서 오버플로우가 일어날 가능성이 작기 때문에 오버플로우 관련 코드를 추가하지 않음
-             * uint 범위 : 0 ~ 4,294,967,295
-             */
+            //right 변수는 테스트 환경에서 오버플로우가 일어날 가능성이 작기 때문에 오버플로우 관련 코드를 추가하지 않음
 
             //목적지는 항상 배열의 오른쪽 끝에 위치하기 때문에 오른쪽을 먼저 체크
             return (SearchRecursive(array, loopCheck, right) || SearchRecursive(array, loopCheck, left));
