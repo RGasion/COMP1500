@@ -14,46 +14,40 @@ namespace Lab8
             4. 목록의 세 번째 레벨에 있는 항목은 / 문자로 분리 (\t\t)
              */
 
-            string[] splitString = s.Split('\n');
+            string[] splitLv1 = s.Split('|');
             StringBuilder forReturn = new StringBuilder(4096);
 
-            for (int i = 0; i < splitString.Length; i++)
-            {       
-                string tmp = splitString[i];
+            int lv1 = 0;
+            for (int cntLv1 = 0; cntLv1 < splitLv1.Length; cntLv1++)
+            {
+                string[] splitLv2 = splitLv1[cntLv1].Split('_');
 
-                int pos;
-                int level = 0;
-                for (pos = 0; tmp[pos] == '\t'; pos++)
-                {
-                    level++;
-                }
-                
-                if (level == 0 && i != 0)
-                {
-                    forReturn.Append('|');
-                }
-                else if (level == 1 && i != 0)
-                {
-                    forReturn.Append('_');
-                }
-                else if (level == 2 && i != 0)
-                {
-                    forReturn.Append('/');
-                }
-                else if (level > 2)
-                {
-                    return null;
-                }
+                forReturn.Append($"{++lv1}) ");
+                forReturn.AppendLine($"{splitLv2[0]}");
 
-                for (; !(tmp[pos] >= 'A' && tmp[pos] <= 'Z' || tmp[pos] >= 'a' && tmp[pos] <= 'z'); pos++) { }
+                for(int cntLv2 = 1; cntLv2 < splitLv2.Length; cntLv2++)
+                {
+                    string[] splitLv3 = splitLv2[cntLv2].Split('/');
 
-                forReturn.Append(tmp.Substring(pos));
-            }            
+                    forReturn.Append($"\t{(char)('a' + cntLv2)}) ");
+                    forReturn.AppendLine($"{splitLv3[0]}");
 
-            if(forReturn == null)
+                    if (splitLv3.Length != 1)
+                    {
+                        for (int cntLv3 = 1; cntLv3 < splitLv3.Length; cntLv3++)
+                        {
+                            forReturn.Append($"\t\t- ");
+                            forReturn.AppendLine($"{splitLv3[cntLv3]}");
+                        }
+                    }
+                }
+            }
+
+            if (forReturn == null)
             {
                 return null;
             }
+
             return forReturn.ToString();
         }
     }

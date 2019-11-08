@@ -14,6 +14,7 @@ namespace Lab8
 ";
             string list = Lab8.PrettifyList(minifiedList);
             Console.WriteLine(list);
+            Console.WriteLine(prettifiedList);
             Debug.Assert(prettifiedList == list);
 
             Console.WriteLine("---------------------------------");
