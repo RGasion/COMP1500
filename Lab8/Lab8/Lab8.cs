@@ -46,19 +46,22 @@ namespace Lab8
                 forReturn.Append($"{++lv1}) ");
                 forReturn.AppendLine($"{splitLv2[0]}");
 
-                for(int cntLv2 = 1; cntLv2 < splitLv2.Length; cntLv2++)
+                if (splitLv2.Length != 1)
                 {
-                    string[] splitLv3 = splitLv2[cntLv2].Split('/');
-
-                    forReturn.Append($"\t{(char)('a' + cntLv2)}) ");
-                    forReturn.AppendLine($"{splitLv3[0]}");
-
-                    if (splitLv3.Length != 1)
+                    for (int cntLv2 = 1; cntLv2 < splitLv2.Length; cntLv2++)
                     {
-                        for (int cntLv3 = 1; cntLv3 < splitLv3.Length; cntLv3++)
+                        string[] splitLv3 = splitLv2[cntLv2].Split('/');
+
+                        forReturn.Append($"    {(char)('a' + cntLv2 - 1)}) ");
+                        forReturn.AppendLine($"{splitLv3[0]}");
+
+                        if (splitLv3.Length != 1)
                         {
-                            forReturn.Append($"\t\t- ");
-                            forReturn.AppendLine($"{splitLv3[cntLv3]}");
+                            for (int cntLv3 = 1; cntLv3 < splitLv3.Length; cntLv3++)
+                            {
+                                forReturn.Append($"        - ");
+                                forReturn.AppendLine($"{splitLv3[cntLv3]}");
+                            }
                         }
                     }
                 }
