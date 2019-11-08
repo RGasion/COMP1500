@@ -14,6 +14,27 @@ namespace Lab8
             4. 목록의 세 번째 레벨에 있는 항목은 / 문자로 분리 (\t\t)
              */
 
+            if (s == null)
+            {
+                return null;
+            }
+            else
+            {
+                int cnt = 0;
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (s[i] == '\t' || s[i] == '\n' || s[i] == ' ')
+                    {
+                        cnt++;
+                    }
+                }
+
+                if (cnt == s.Length)
+                {
+                    return null;
+                }
+            }
+
             string[] splitLv1 = s.Split('|');
             StringBuilder forReturn = new StringBuilder(4096);
 
