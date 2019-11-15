@@ -47,7 +47,7 @@ namespace Lab9
 
             Dictionary<string, int> numerators = new Dictionary<string, int>
             {
-                { "a", 53 },
+                { "a", 0 },
                 { "b", -14 },
                 { "c", 5 },
                 { "d", 235 },
@@ -66,7 +66,7 @@ namespace Lab9
             Dictionary<string, decimal> result = Lab9.MergeDictionaries(numerators, denominators);
             Dictionary<string, decimal> expectedResult = new Dictionary<string, decimal>
             {
-                { "a", 0.6883116883116883116883116883m },
+                { "a", 0m },
                 { "b", 0.0595744680851063829787234043m },
                 { "c", 1.6666666666666666666666666667m },
                 { "d", 1.9421487603305785123966942149m }
