@@ -61,15 +61,7 @@ namespace Lab9
                     break;
                 }
 
-                if (!forReturn.TryAdd(keys[keysIndex], values[valuesIndex]))
-                {
-                    keysIndex++;
-                }
-                else
-                {
-                    keysIndex++;
-                    valuesIndex++;
-                }
+                forReturn.TryAdd(keys[keysIndex++], values[valuesIndex++]);
             }
 
             return forReturn;

@@ -133,5 +133,8 @@ namespace Lab9
             string s = sb.ToString().Trim().Trim(',');
             Console.WriteLine($"{s} ]");
         }
+
+
+
     }
 }
