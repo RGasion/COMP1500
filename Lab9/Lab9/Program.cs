@@ -10,6 +10,7 @@ namespace Lab9
     {
         static void Main(string[] args)
         {
+            //MergeLists Test
             List<int> list1 = new List<int> { 1, 1, 4, 7, 8, 11, 20 };
             List<int> list2 = new List<int> { 2, 3, 4, 5, 10, 15, 16, 21, 22 };
 
@@ -24,7 +25,24 @@ namespace Lab9
                 Debug.Assert(expectedList[i] == combinedList[i]);
             }
 
-            
+            //CombineListsToDictionary Test
+            List<string> keys = new List<string> { "hello", "world", "comp1500", "intro", "to", "c#" };
+            List<int> values = new List<int> { 2, 5, 10, 40, -11, -50 };
+
+            Dictionary<string, int> dict = Lab9.CombineListsToDictionary(keys, values);
+            Dictionary<string, int> expectedDict = new Dictionary<string, int>
+            {
+                { "hello", 2 },
+                { "world", 5 },
+                { "comp1500", 10 },
+                { "intro", 40 },
+                { "to", -11 },
+                { "c#", -50 }
+            };
+
+            printDictionary(dict);
+
+            Debug.Assert(dict.Count == expectedDict.Count);
         }
 
         static void testCase()
