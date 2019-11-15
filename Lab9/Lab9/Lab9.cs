@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 
 namespace Lab9
@@ -85,7 +84,7 @@ namespace Lab9
 
             for (int i = 0; i < 26; i++)
             {
-                stringKeys[i] = string.Format("{0}", (char)('a' + i)) ;
+                stringKeys[i] = string.Format("{0}", (char)('a' + i));
             }
 
             for (int i = 0; i < 26; i++)
@@ -97,7 +96,14 @@ namespace Lab9
 
                     if (denominatorsValue != 0)
                     {
-                        forReturn.Add(stringKeys[i], Math.Abs((decimal)numeratorsValue / denominatorsValue));
+                        decimal input = (decimal)numeratorsValue / denominatorsValue;
+                        //Math.Abs((decimal)numeratorsValue / denominatorsValue)
+                        if (input < 0)
+                        {
+                            input *= -1;
+                        }
+
+                        forReturn.Add(stringKeys[i], input);
                     }
                 }
             }
