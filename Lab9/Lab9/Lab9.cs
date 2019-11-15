@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+
 
 namespace Lab9
 {
@@ -8,37 +10,37 @@ namespace Lab9
         {
             List<int> forReturn = new List<int>();
 
-            int List1Length = sortedList1.Count;
-            int List1Index = 0;
-            int List2Length = sortedList2.Count;            
-            int List2Index = 0;
+            int list1Length = sortedList1.Count;
+            int list1Index = 0;
+            int list2Length = sortedList2.Count;            
+            int list2Index = 0;
 
             while (true)
             {
-                if (List1Index == List1Length)
+                if (list1Index == list1Length)
                 {
-                    for (; List2Index < List2Length; List2Index++)
+                    for (; list2Index < list2Length; list2Index++)
                     {
-                        forReturn.Add(sortedList2[List2Index]);
+                        forReturn.Add(sortedList2[list2Index]);
                     }
                     break;
                 }
-                else if (List2Index == List2Length)
+                else if (list2Index == list2Length)
                 {
-                    for (; List1Index < List1Length; List1Index++)
+                    for (; list1Index < list1Length; list1Index++)
                     {
-                        forReturn.Add(sortedList1[List1Index]);
+                        forReturn.Add(sortedList1[list1Index]);
                     }
                     break;
                 }
 
-                if (sortedList1[List1Index] < sortedList2[List2Index])
+                if (sortedList1[list1Index] < sortedList2[list2Index])
                 {
-                    forReturn.Add(sortedList1[List1Index++]);
+                    forReturn.Add(sortedList1[list1Index++]);
                 }
                 else
                 {
-                    forReturn.Add(sortedList2[List2Index++]);
+                    forReturn.Add(sortedList2[list2Index++]);
                 }
             }
 
@@ -69,7 +71,38 @@ namespace Lab9
 
         public static Dictionary<string, decimal> MergeDictionaries(Dictionary<string, int> numerators, Dictionary<string, int> denominators)
         {
-            return null;
+            Dictionary<string, decimal> forReturn = new Dictionary<string, decimal>();
+
+            if (numerators.Count == 0 || denominators.Count == 0)
+            {
+                return forReturn;
+            }
+
+            int numeratorsValue;
+            int denominatorsValue;
+
+            string[] stringKeys = new string[26];
+
+            for (int i = 0; i < 26; i++)
+            {
+                stringKeys[i] = string.Format("{0}", (char)('a' + i)) ;
+            }
+
+            for (int i = 0; i < 26; i++)
+            {
+                if (numerators.ContainsKey(stringKeys[i]) && denominators.ContainsKey(stringKeys[i]))
+                {
+                    denominators.TryGetValue(stringKeys[i], out denominatorsValue);
+                    numerators.TryGetValue(stringKeys[i], out numeratorsValue);
+
+                    if (denominatorsValue != 0)
+                    {
+                        forReturn.Add(stringKeys[i], Math.Abs((decimal)numeratorsValue / denominatorsValue));
+                    }
+                }
+            }
+
+            return forReturn;
         }
     }
 }
