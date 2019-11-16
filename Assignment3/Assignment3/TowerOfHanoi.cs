@@ -7,7 +7,17 @@ namespace Assignment3
 
         public static int GetNumberOfSteps(int numDiscs)
         {
-            return -1;
+            if (numDiscs < 0)
+            {
+                return -1;
+            }
+            
+            if (numDiscs == 0)
+            {
+                return 0;
+            }
+
+            return 2 * GetNumberOfSteps(numDiscs - 1) + 1;
         }
 
         public static List<List<int>[]> SolveTowerOfHanoi(int numDiscs)

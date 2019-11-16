@@ -8,7 +8,13 @@ namespace Assignment3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int steps = TowerOfHanoi.GetNumberOfSteps(-2);
+
+            Debug.Assert(steps == -1);
+
+            steps = TowerOfHanoi.GetNumberOfSteps(3);
+
+            Debug.Assert(steps == 7);
         }
 
         static void funtionTest()
