@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Assignment3
 {
-    public enum EDirection {Center, Right}
+    public enum EDirection { Center, Right };
     public static class TowerOfHanoi
     {
 
@@ -35,9 +35,9 @@ namespace Assignment3
         }
         
         //특정 갯수의 원판들을 이동시키는 함수
-        public static List<List<int>[]> RecursiveMove(int numDiscs, EDirection direction, List<List<int>[]> field)
+        public static List<List<int>[]> MoveRecursive(int numDiscs, EDirection direction, List<List<int>[]> field)
         {
-            RecursiveMove(numDiscs - 1, EDirection.Center, field);
+            MoveRecursive(numDiscs - 1, EDirection.Center, field);
             return null;
         }
     }
