@@ -9,27 +9,14 @@ namespace Assignment3
         static void Main(string[] args)
         {
             int steps = TowerOfHanoi.GetNumberOfSteps(-2);
-
             Debug.Assert(steps == -1);
 
             steps = TowerOfHanoi.GetNumberOfSteps(3);
 
             Debug.Assert(steps == 7);
 
-            TowerOfHanoi.SolveTowerOfHanoi(5);
-        }
-
-        static void funtionTest()
-        {
-            int steps = TowerOfHanoi.GetNumberOfSteps(-2);
-
-            Debug.Assert(steps == -1);
-
-            steps = TowerOfHanoi.GetNumberOfSteps(3);
-
-            Debug.Assert(steps == 7);
-            
             var snapshots = TowerOfHanoi.SolveTowerOfHanoi(3);
+            printSnapshots(snapshots);
 
             Debug.Assert(isEqual(snapshots[0][0], new List<int> { 3, 2, 1 }));
             Debug.Assert(snapshots[0][1].Count == 0);
@@ -63,9 +50,10 @@ namespace Assignment3
             Debug.Assert(snapshots[7][1].Count == 0);
             Debug.Assert(isEqual(snapshots[7][2], new List<int> { 3, 2, 1 }));
 
-            printSnapshots(snapshots);
+            
         }
-        private static void printSnapshots(List<List<int>[]> snapshots)
+
+        public static void printSnapshots(List<List<int>[]> snapshots)
         {
             for (int i = 0; i < snapshots.Count; i++)
             {
@@ -101,5 +89,15 @@ namespace Assignment3
 
             return true;
         }
-    }    
+
+        public static void PrintField(List<int>[] field)
+        {
+            for (int tower = 0; tower < 3; tower++)
+            {
+                Console.WriteLine($"[ {string.Join(", ", field[tower])} ]");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+    }
 }
