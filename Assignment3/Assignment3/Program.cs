@@ -15,6 +15,8 @@ namespace Assignment3
             steps = TowerOfHanoi.GetNumberOfSteps(3);
 
             Debug.Assert(steps == 7);
+
+            TowerOfHanoi.SolveTowerOfHanoi(5);
         }
 
         static void funtionTest()

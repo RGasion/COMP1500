@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Assignment3
 {
-    enum Direction { Center, Right}
+    public enum EDirection {Center, Right}
     public static class TowerOfHanoi
     {
 
@@ -29,22 +30,15 @@ namespace Assignment3
             {
                 return field;
             }
-            return field;
-            /*
-            //상태 초기화
-            List<int>[] towerChk = field[0];            
-            for (int i = numDiscs; i > 0; i--)
-            {
-                field[0][i - numDiscs] = i;
-            }
-            return null;*/
-        }
-        /*
-        //특정 갯수의 원판들을 이동시키는 함수
-        public static List<List<int>[]> RecursiveMove(int numDiscs, Direction direction, List<List<int>[]> field)
-        {
-            Move(numDiscs - 1, Direction.Center, field);
+            
             return null;
-        }*/
+        }
+        
+        //특정 갯수의 원판들을 이동시키는 함수
+        public static List<List<int>[]> RecursiveMove(int numDiscs, EDirection direction, List<List<int>[]> field)
+        {
+            RecursiveMove(numDiscs - 1, EDirection.Center, field);
+            return null;
+        }
     }
 }
