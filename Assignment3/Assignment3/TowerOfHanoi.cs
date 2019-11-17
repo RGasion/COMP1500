@@ -60,7 +60,7 @@ namespace Assignment3
         }
         
         //특정 갯수의 원판들을 왼쪽에서 해당 위치로 이동시키는 함수
-        public static void MoveRecursive(int numDiscs, EDirection Origin, EDirection Dest, ref List<int>[] field, ref List<List<int>[]> process)
+        public static void MoveRecursive(int numDiscs, EDirection origin, EDirection dest, ref List<int>[] field, ref List<List<int>[]> process)
         {
             //왼쪽에서 센터로 (Recursive) -> 마지막 원판을 오른쪽으로 -> 센터를 오른쪽으로 (Recursive)
             int plate = 0;
@@ -70,10 +70,10 @@ namespace Assignment3
             }
             if (numDiscs == 1)
             {
-                plate = field[(int)Origin][field[(int)Origin].Count - 1];
-                field[(int)Origin].Remove(plate);
+                plate = field[(int)origin][field[(int)origin].Count - 1];
+                field[(int)origin].Remove(plate);
 
-                field[(int)Dest].Add(plate);
+                field[(int)dest].Add(plate);
                 
                 //copy
                 List<int>[] saveProcess = new List<int>[3];
@@ -92,13 +92,13 @@ namespace Assignment3
             }
 
             EDirection tmp;
-            if ((int)Origin * (int)Dest != 0)
+            if ((int)origin * (int)dest != 0)
             {
                 tmp = EDirection.Left;
             }
             else
             {
-                if ((int)Origin + (int)Dest == 1)
+                if ((int)origin + (int)dest == 1)
                 {
                     tmp = EDirection.Right;
                 }
@@ -108,11 +108,11 @@ namespace Assignment3
                 }
             }
 
-            MoveRecursive(numDiscs - 1, Origin, tmp, ref field, ref process);
+            MoveRecursive(numDiscs - 1, origin, tmp, ref field, ref process);
 
-            MoveRecursive(1, Origin, Dest, ref field, ref process);
+            MoveRecursive(1, origin, dest, ref field, ref process);
 
-            MoveRecursive(numDiscs - 1, tmp, Dest, ref field, ref process);
+            MoveRecursive(numDiscs - 1, tmp, dest, ref field, ref process);
         }
 
     }
