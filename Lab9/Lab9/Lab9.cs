@@ -78,25 +78,18 @@ namespace Lab9
                 return forReturn;
             }
 
-            string[] stringKeys = new string[27];
-
-            for (int i = 0; i < 26; i++)
+            foreach (KeyValuePair<string, int> items in numerators)
             {
-                stringKeys[i] = string.Format("{0}", (char)('a' + i));
-            }
-
-            for (int i = 0; i < 26; i++)
-            {
-                if (numerators.ContainsKey(stringKeys[i]) && denominators.ContainsKey(stringKeys[i]))
+                if (denominators.ContainsKey(items.Key))
                 {
                     int numeratorsValue;
                     int denominatorsValue;
-                    numerators.TryGetValue(stringKeys[i], out numeratorsValue);
-                    denominators.TryGetValue(stringKeys[i], out denominatorsValue);
+                    numerators.TryGetValue(items.Key, out numeratorsValue);
+                    denominators.TryGetValue(items.Key, out denominatorsValue);
 
                     if (denominatorsValue != 0)
                     {
-                        forReturn.Add(stringKeys[i], Math.Abs((decimal)numeratorsValue / denominatorsValue));
+                        forReturn.Add(items.Key, Math.Abs((decimal)numeratorsValue / denominatorsValue));
                     }
                 }
             }
