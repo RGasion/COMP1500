@@ -13,7 +13,7 @@ namespace Assignment3
             {
                 return -1;
             }
-            
+
             if (numDiscs == 0)
             {
                 return 0;
@@ -42,27 +42,15 @@ namespace Assignment3
                 field[0].Add(numDiscs - i);
             }
 
-            List<int>[] saveProcess = new List<int>[3];
-            for (int tower = 0; tower < 3; tower++)
-            {
-                saveProcess[tower] = new List<int>();
-                for (int count = 0; count < field[tower].Count; count++)
-                {
-                    saveProcess[tower].Add(field[tower][count]);
-                }
-            }
-
-            process.Add(saveProcess);
+            process.Add(SaveProcess(field));
 
             MoveRecursive(numDiscs, EDirection.Left, EDirection.Right, ref field, ref process);
-            
+
             return process;
         }
-        
-        //특정 갯수의 원판들을 왼쪽에서 해당 위치로 이동시키는 함수
+
         public static void MoveRecursive(int numDiscs, EDirection origin, EDirection dest, ref List<int>[] field, ref List<List<int>[]> process)
         {
-            //왼쪽에서 센터로 (Recursive) -> 마지막 원판을 오른쪽으로 -> 센터를 오른쪽으로 (Recursive)
             int plate = 0;
             if (numDiscs == 0)
             {
@@ -75,18 +63,7 @@ namespace Assignment3
 
                 field[(int)dest].Add(plate);
                 
-                //copy
-                List<int>[] saveProcess = new List<int>[3];
-                for (int tower = 0; tower < 3; tower++)
-                {
-                    saveProcess[tower] = new List<int>();
-                    for (int count = 0; count < field[tower].Count; count++)
-                    {
-                        saveProcess[tower].Add(field[tower][count]);
-                    }
-                }
-
-                process.Add(saveProcess);
+                process.Add(SaveProcess(field));
 
                 return;
             }
@@ -108,11 +85,28 @@ namespace Assignment3
                 }
             }
 
+            //[Left → Center](n-1) -> [Left → Right](1) -> [Center → Right](n-1)
             MoveRecursive(numDiscs - 1, origin, tmp, ref field, ref process);
 
             MoveRecursive(1, origin, dest, ref field, ref process);
 
             MoveRecursive(numDiscs - 1, tmp, dest, ref field, ref process);
+        }
+
+        public static List<int>[] SaveProcess(List<int>[] field)
+        {
+            List<int>[] forReturn = new List<int>[3];
+
+            for (int tower = 0; tower < 3; tower++)
+            {
+                forReturn[tower] = new List<int>();
+                for (int count = 0; count < field[tower].Count; count++)
+                {
+                    forReturn[tower].Add(field[tower][count]);
+                }
+            }
+
+            return forReturn;
         }
 
     }
