@@ -78,7 +78,7 @@ namespace Lab9
                 return forReturn;
             }
 
-            string[] stringKeys = new string[26];
+            string[] stringKeys = new string[27];
 
             for (int i = 0; i < 26; i++)
             {
