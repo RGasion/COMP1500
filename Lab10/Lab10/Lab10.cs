@@ -6,42 +6,13 @@ namespace Lab10
 {
     class Rectangle
     {
-        public uint mWidth;
-        public uint mHeight;
+        public uint Width { get; private set; }
+        public uint Height { get; private set; }
+
         public Rectangle(uint width, uint height)
         {
-            mWidth = width;
-            mHeight = height;
-        }
-
-        public uint Width
-        {
-            get
-            {
-                return mWidth;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    mWidth = 0;
-                }
-            }
-        }
-
-        public uint Height
-        {
-            get
-            {
-                return mHeight;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    mHeight = 0;
-                }
-            }
+            Width = width;
+            Height = height;
         }
         public double GetPerimeter()
         {
@@ -56,13 +27,14 @@ namespace Lab10
 
     class RightTriangle
     {
-        public uint Width;
-        public uint Height;
+        public uint Width { get; private set; }
+        public uint Height { get; private set; }
         public RightTriangle(uint width, uint height)
         {
             Width = width;
             Height = height;
         }
+
         public double GetPerimeter()
         {
             return Math.Round(Width + Height + Math.Sqrt((double)(Width * Width + Height * Height)), 3);
@@ -76,8 +48,8 @@ namespace Lab10
 
     class Circle
     {
-        public uint Radius;
-        public uint Diameter;
+        public uint Radius { get; private set; }
+        public uint Diameter { get; private set; }
         public Circle(uint radius)
         {
             Radius = radius;
