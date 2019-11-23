@@ -6,12 +6,42 @@ namespace Lab10
 {
     class Rectangle
     {
-        public uint Width;
-        public uint Height;
+        public uint mWidth;
+        public uint mHeight;
         public Rectangle(uint width, uint height)
         {
-            Width = width;
-            Height = height;
+            mWidth = width;
+            mHeight = height;
+        }
+
+        public uint Width
+        {
+            get
+            {
+                return mWidth;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    mWidth = 0;
+                }
+            }
+        }
+
+        public uint Height
+        {
+            get
+            {
+                return mHeight;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    mHeight = 0;
+                }
+            }
         }
         public double GetPerimeter()
         {
