@@ -36,6 +36,8 @@ namespace Lab11
                 }
             }
 
+            input.Position = 0;
+            output.Position = 0;
             return true;
         }
 
