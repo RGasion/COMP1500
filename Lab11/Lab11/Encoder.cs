@@ -59,9 +59,25 @@ namespace Lab11
 
         public static bool TryDecode(Stream input, Stream output)
         {
+            if (input.Length == 0)
+            {
+                return false;
+            }
+            var writer = new StreamWriter(output);
+            for (int i = 0; i < input.Length / 2; i++)
+            {
+                int times = (int)input.ReadByte();
+                char character = (char)input.ReadByte();
 
+                for (int k = 0; k < times; k++)
+                {
+                    writer.Write($"{character}");
+                }
+            }
 
-            return false;
+            input.Position = 0;
+            output.Position = 0;
+            return true;
         }
 
     }
