@@ -18,7 +18,7 @@ namespace Lab11
             char checkChar = '\0';
 
             char baseChar = (char)input.ReadByte();
-            for (int i = 0; i < input.Length; i++)
+            for (int i = 1; i < input.Length; i++)
             {
                 checkChar = (char)input.ReadByte();
 
@@ -28,6 +28,22 @@ namespace Lab11
                 }
                 else
                 {
+                    if (i == input.Length - 1)
+                    {
+                        if (checkChar == baseChar)
+                        {
+                            count++;
+                        }
+                        else
+                        {
+                            output.WriteByte((byte)count);
+                            output.WriteByte((byte)baseChar);
+
+                            baseChar = checkChar;
+                            count = 1;
+                        }
+                    }
+                    
                     output.WriteByte((byte)count);
                     output.WriteByte((byte)baseChar);
 
