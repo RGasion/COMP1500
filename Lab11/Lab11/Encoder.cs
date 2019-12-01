@@ -14,7 +14,7 @@ namespace Lab11
 
             const int MAX_COUNT = 255;
 
-            int count = 0;
+            int count = 1;
             char checkChar = '\0';
 
             char baseChar = (char)input.ReadByte();
