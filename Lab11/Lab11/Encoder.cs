@@ -16,29 +16,30 @@ namespace Lab11
 
             int count = 0;
             char baseChar = '\0';
-            char checkChar;
+            char checkChar = '\0';
             for (int i = 0; i < input.Length; i++)
             {
                 if (count == 0)
                 {
                     baseChar = (char)input.ReadByte();
-
                     count++;
                 }
                 else
                 {
                     checkChar = (char)input.ReadByte();
-                    if (checkChar == baseChar)
-                    {
-                        count++;
-                    }
-                    else if (checkChar != baseChar || count == MAX_COUNT || i == input.Length - 1)
-                    {
-                        output.WriteByte((byte)count);
-                        output.WriteByte((byte)baseChar);
+                }
 
-                        count = 0;
-                    }
+                if (checkChar == baseChar)
+                {
+                    count++;
+                }
+                else if (checkChar != baseChar || count == MAX_COUNT || i == input.Length - 1)
+                {
+                    output.WriteByte((byte)count);
+                    output.WriteByte((byte)baseChar);
+
+                    baseChar = checkChar;
+                    count = 1;
                 }
             }
 
