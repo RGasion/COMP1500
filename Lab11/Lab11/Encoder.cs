@@ -52,8 +52,8 @@ namespace Lab11
                 }
             }
 
-            input.Position = 0;
-            output.Position = 0;
+            input.Seek(0, SeekOrigin.Begin);
+            output.Seek(0, SeekOrigin.Begin);
             return true;
         }
 
@@ -64,21 +64,19 @@ namespace Lab11
                 return false;
             }
 
-            using (var writer = new StreamWriter(output))
+            for (int i = 0; i < input.Length / 2; i++)
             {
-                for (int i = 0; i < input.Length / 2; i++)
-                {
-                    int times = (int)input.ReadByte();
-                    char character = (char)input.ReadByte();
+                int times = (int)input.ReadByte();
+                char character = (char)input.ReadByte();
 
-                    for (int k = 0; k < times; k++)
-                    {
-                        writer.Write("{0}", character);
-                    }
+                for (int k = 0; k < times; k++)
+                {
+                    output.WriteByte((byte)character);
                 }
             }
 
-            input.Position = 0;
+            input.Seek(0, SeekOrigin.Begin);
+            output.Seek(0, SeekOrigin.Begin);
             return true;
         }
 
