@@ -49,7 +49,7 @@ namespace Lab11
             {
                 bool bEncoded = Encoder.TryDecode(read, write);
                 // Check decode1.bin.output.txt. The content should be the same as encode1.txt
-                ///Debug.Assert(bEncoded);
+                Debug.Assert(bEncoded);
             }
 
             using (Stream read = File.OpenRead(ENCODE_TEST2))
@@ -64,7 +64,7 @@ namespace Lab11
             {
                 bool bEncoded = Encoder.TryDecode(read, write);
                 // Check decode2.bin.output.txt. The content should be the same as encode2.txt
-                ///Debug.Assert(bEncoded);
+                Debug.Assert(bEncoded);
             }
 
             using (Stream read = File.OpenRead(EMPTY_ENCODE_TEST))
@@ -79,7 +79,7 @@ namespace Lab11
             {
                 bool bEncoded = Encoder.TryDecode(read, write);
                 // Check empty_decode.bin.output.txt. The content should be empty.
-                ///Debug.Assert(!bEncoded);
+                Debug.Assert(!bEncoded);
             }
         }
 

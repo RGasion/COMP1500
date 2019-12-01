@@ -42,9 +42,6 @@ namespace Lab11
                 }
             }
 
-            input.Close();
-            output.Close();
-
             return true;
         }
 
