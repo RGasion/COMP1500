@@ -63,20 +63,22 @@ namespace Lab11
             {
                 return false;
             }
-            var writer = new StreamWriter(output);
-            for (int i = 0; i < input.Length / 2; i++)
-            {
-                int times = (int)input.ReadByte();
-                char character = (char)input.ReadByte();
 
-                for (int k = 0; k < times; k++)
+            using (var writer = new StreamWriter(output))
+            {
+                for (int i = 0; i < input.Length / 2; i++)
                 {
-                    writer.Write($"{character}");
+                    int times = (int)input.ReadByte();
+                    char character = (char)input.ReadByte();
+
+                    for (int k = 0; k < times; k++)
+                    {
+                        writer.Write("{0}", character);
+                    }
                 }
             }
 
             input.Position = 0;
-            output.Position = 0;
             return true;
         }
 
