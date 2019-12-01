@@ -30,7 +30,7 @@ namespace Lab11
                 {
                     if (i == input.Length - 1)
                     {
-                        if (checkChar == baseChar)
+                        if (checkChar == baseChar && count != MAX_COUNT)
                         {
                             count++;
                         }
