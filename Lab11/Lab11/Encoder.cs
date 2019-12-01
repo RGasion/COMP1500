@@ -15,25 +15,18 @@ namespace Lab11
             const int MAX_COUNT = 255;
 
             int count = 0;
-            char baseChar = '\0';
             char checkChar = '\0';
-            for (int i = 0; i < input.Length; i++)
+
+            char baseChar = (char)input.ReadByte();
+            for (int i = 1; i < input.Length; i++)
             {
-                if (count == 0)
+                checkChar = (char)input.ReadByte();
+
+                if (checkChar == baseChar && count != MAX_COUNT && i != input.Length - 1)
                 {
-                    baseChar = (char)input.ReadByte();
                     count++;
                 }
                 else
-                {
-                    checkChar = (char)input.ReadByte();
-                }
-
-                if (checkChar == baseChar)
-                {
-                    count++;
-                }
-                else if (checkChar != baseChar || count == MAX_COUNT || i == input.Length - 1)
                 {
                     output.WriteByte((byte)count);
                     output.WriteByte((byte)baseChar);
