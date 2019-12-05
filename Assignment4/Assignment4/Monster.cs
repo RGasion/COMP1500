@@ -24,6 +24,11 @@ namespace Assignment4
         public void TakeDamage(int amount)
         {
             Health -= amount;
+
+            if (Health < 0)
+            {
+                Health = 0;
+            }
         }
 
         public void Attack(Monster otherMonster)

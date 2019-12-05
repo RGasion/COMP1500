@@ -35,68 +35,72 @@ namespace Assignment4
                     string line = reader.ReadLine();
                     if (line == null)
                     {
+                        Field[i] = null;
                         return;
                     }
+                    else
+                    {
+                        string[] data = line.Split(',');
+                        EElementType elementType = 0;
+                        if (data[1] == "Fire")
+                        {
+                            elementType = EElementType.Fire;
+                        }
+                        else if (data[1] == "Water")
+                        {
+                            elementType = EElementType.Water;
+                        }
+                        else if (data[1] == "Wind")
+                        {
+                            elementType = EElementType.Wind;
+                        }
+                        else if (data[1] == "Earth")
+                        {
+                            elementType = EElementType.Earth;
+                        }
 
-                    string[] data = line.Split(',');
-                    EElementType elementType = 0;
-                    if (data[1] == "Fire")
-                    {
-                        elementType = EElementType.Fire;
+                        Field[i] = new Monster(data[0], elementType, Convert.ToInt32(data[2]), Convert.ToInt32(data[3]), Convert.ToInt32(data[4]));
                     }
-                    else if (data[1] == "Water")
-                    {
-                        elementType = EElementType.Water;
-                    }
-                    else if (data[1] == "Wind")
-                    {
-                        elementType = EElementType.Wind;
-                    }
-                    else if (data[1] == "Earth")
-                    {
-                        elementType = EElementType.Earth;
-                    }
-
-                    Field[i] = new Monster(data[0], elementType, Convert.ToInt32(data[2]), Convert.ToInt32(data[3]), Convert.ToInt32(data[4]));
                 }
             }
         }
 
         public void GoToNextTurn()
         {
-            for (int i = 0;  i < Capacity; i++)
-            {
-                if (Field[i] == null)
-                {
-                    break;
-                }
+            Turns++;
 
-                if (Field[i + 1] != null)
+            for (int i = 0;  i < Capacity && Field[i] != null; i++)
+            {
+                if (i != Capacity - 1 && Field[i + 1] != null)
                 {
                     Field[i].Attack(Field[i + 1]);                    
                 }
                 else
                 {
-                    if (i == 0)
+                    if (i != 0)
                     {
-                        break;
+                        Field[i].Attack(Field[0]);
                     }
-                    Field[i].Attack(Field[0]);
                 }
 
                 for (int k = 0; k < Capacity && Field[k] != null; k++)
                 { 
-                    if (Field[k].Health < 1)
+                    if (Field[k].Health == 0)
                     {
                         for (int n = k; n < Capacity && Field[n] != null; n++)
                         {
-                            Field[n] = Field[n + 1];
+                            if (n != Capacity - 1)
+                            {
+                                Field[n] = Field[n + 1];
+                            }
+                            else
+                            {
+                                Field[n] = null;
+                            }
                         }
                     }
                 }
             }
-
-            Turns++;
         }
 
         public Monster GetHealthiest()

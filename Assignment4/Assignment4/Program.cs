@@ -116,6 +116,39 @@ namespace Assignment4
                 }
                 Console.WriteLine($"{arena.Field[i].Name}: {arena.Field[i].Health}");
             }
+
+            arena.GoToNextTurn();
+            Console.WriteLine($"{arena.Turns}");
+            for (int i = 0; i < arena.Capacity; i++)
+            {
+                if (arena.Field[i] == null)
+                {
+                    break;
+                }
+                Console.WriteLine($"{arena.Field[i].Name}: {arena.Field[i].Health}");
+            }
+
+            arena.GoToNextTurn();
+            Console.WriteLine($"{arena.Turns}");
+            for (int i = 0; i < arena.Capacity; i++)
+            {
+                if (arena.Field[i] == null)
+                {
+                    break;
+                }
+                Console.WriteLine($"{arena.Field[i].Name}: {arena.Field[i].Health}");
+            }
+
+            arena.GoToNextTurn();
+            Console.WriteLine($"{arena.Turns}");
+            for (int i = 0; i < arena.Capacity; i++)
+            {
+                if (arena.Field[i] == null)
+                {
+                    break;
+                }
+                Console.WriteLine($"{arena.Field[i].Name}: {arena.Field[i].Health}");
+            }
         }
     }
 }
