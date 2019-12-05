@@ -81,7 +81,7 @@ namespace Assignment4
                 return;
             }
 
-            for (int i = 0;  i < Capacity && Field[i] != null; i++)
+            for (int i = 0; i < Capacity && Field[i] != null; i++)
             {
                 if (i != Capacity - 1 && Field[i + 1] != null)
                 {
@@ -117,7 +117,7 @@ namespace Assignment4
 
         public Monster GetHealthiest()
         {
-            Monster Healthiest = Field[0];
+            Monster forReturn = Field[0];
             for (int i = 1; i < Capacity; i++)
             {
                 if (Field[i] == null)
@@ -125,13 +125,13 @@ namespace Assignment4
                     break;
                 }
 
-                if (Healthiest.Health < Field[i].Health)
+                if (forReturn.Health < Field[i].Health)
                 {
-                    Healthiest = Field[i];
+                    forReturn = Field[i];
                 }
             }
 
-            return Healthiest;
+            return forReturn;
         }
     }
 }
